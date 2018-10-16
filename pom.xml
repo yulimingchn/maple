@@ -9,7 +9,7 @@
 	<packaging>war</packaging>
 
 	<name>maple_blog</name>
-	<description>Vue博客服务端</description>
+	<description>个人博客服务端</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
