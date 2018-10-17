@@ -27,7 +27,7 @@ public class ArticleService {
         if (article.getSummary() == null || "".equals(article.getSummary())) {
             //直接截取
             String stripHtml = stripHtml(article.getHtmlContent());
-            article.setSummary(stripHtml.substring(0, stripHtml.length() > 50 ? 50 : stripHtml.length()));
+            article.setSummary(stripHtml.substring(0, stripHtml.length() > 30 ? 30 : stripHtml.length()));
         }
         if (article.getId() == -1) {
             //添加操作
@@ -71,6 +71,7 @@ public class ArticleService {
     }
 
     private int addTagsToArticle(String[] dynamicTags, Long aid) {
+
         //1.删除该文章目前所有的标签
         tagsMapper.deleteTagsByAid(aid);
         //2.将上传上来的标签全部存入数据库
@@ -79,6 +80,7 @@ public class ArticleService {
         List<Long> tIds = tagsMapper.getTagsIdByTagName(dynamicTags);
         //4.重新给文章设置标签
         int i = tagsMapper.saveTags2ArticleTags(tIds, aid);
+
         return i == dynamicTags.length ? i : -1;
     }
 

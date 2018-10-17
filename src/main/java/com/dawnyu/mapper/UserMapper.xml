@@ -3,6 +3,20 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dawnyu.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.dawnyu.bean.User">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="nickname" property="nickname"/>
+        <result column="password" property="password"/>
+        <result column="enabled" property="enabled"/>
+        <result column="email" property="email"/>
+        <result column="userface" property="userface"/>
+        <result column="regTime" property="regTime"/>
+        <collection property="roles" ofType="com.dawnyu.bean.Role">
+            <id column="rid" property="id"/>
+            <result column="rname" property="name"/>
+        </collection>
+    </resultMap>
     <select id="loadUserByUsername" resultType="com.dawnyu.bean.User">
         SELECT * FROM user WHERE username=#{username}
     </select>
@@ -28,20 +42,7 @@
         SELECT u.*,r.`id` AS rid,r.`name` AS rname FROM user u,roles r,roles_user ru WHERE u.`id`=ru.`uid` AND
         r.`id`=ru.`rid` AND u.`id`=#{id}
     </select>
-    <resultMap id="BaseResultMap" type="com.dawnyu.bean.User">
-        <id column="id" property="id"/>
-        <result column="username" property="username"/>
-        <result column="nickname" property="nickname"/>
-        <result column="password" property="password"/>
-        <result column="enabled" property="enabled"/>
-        <result column="email" property="email"/>
-        <result column="userface" property="userface"/>
-        <result column="regTime" property="regTime"/>
-        <collection property="roles" ofType="com.dawnyu.bean.Role">
-            <id column="rid" property="id"/>
-            <result column="rname" property="name"/>
-        </collection>
-    </resultMap>
+
     <select id="getAllRole" resultType="com.dawnyu.bean.Role">
         select * from roles;
     </select>
