@@ -15,14 +15,23 @@ import java.util.List;
  */
 @Data
 public class User implements UserDetails {
+
     private Long id;
+
     private String username;
+
     private String password;
+
     private String nickname;
+
     private boolean enabled;
+
     private List<Role> roles;
+
     private String email;
+
     private String userface;
+
     private Timestamp regTime;
 
     @Override
@@ -76,15 +85,9 @@ public class User implements UserDetails {
         return password;
     }
 
+
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
 }
