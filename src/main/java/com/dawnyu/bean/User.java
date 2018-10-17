@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,15 +16,28 @@ import java.util.List;
  */
 @Data
 public class User implements UserDetails {
+
     private Long id;
+
     private String username;
+
     private String password;
+
     private String nickname;
+
     private boolean enabled;
+
     private List<Role> roles;
+
     private String email;
+
     private String userface;
+
     private Timestamp regTime;
+
+    private Date createTime;
+
+    private Date updateTime;
 
     @Override
     public String getUsername() {
@@ -76,15 +90,9 @@ public class User implements UserDetails {
         return password;
     }
 
+
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
 }
