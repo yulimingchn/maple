@@ -33,7 +33,7 @@ public class CategoryService {
     }
 
     public int addCategory(Category category) {
-        category.setDate(new Timestamp(System.currentTimeMillis()));
+        category.setCreateDate(new Timestamp(System.currentTimeMillis()));
         return categoryMapper.addCategory(category);
     }
 }
