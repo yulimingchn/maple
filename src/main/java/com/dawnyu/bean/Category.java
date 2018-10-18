@@ -14,6 +14,6 @@ public class Category {
 
     private String cateName;
 
-    private Timestamp date;
+    private Timestamp createDate;
 
 }

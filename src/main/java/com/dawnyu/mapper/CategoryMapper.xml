@@ -3,7 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dawnyu.mapper.CategoryMapper">
-    <select id="getAllCategories" resultType="com.dawnyu.bean.Category">
+    <resultMap id="BaseResultMap" type="com.dawnyu.bean.Category">
+        <id column="id" property="id"/>
+        <result column="cate_name" property="cateName"/>
+        <result column="create_date" property="createDate"/>
+    </resultMap>
+    <select id="getAllCategories" resultMap="BaseResultMap">
         SELECT * FROM category
     </select>
     <delete id="deleteCategoryByIds">
