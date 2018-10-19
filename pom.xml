@@ -6,10 +6,10 @@
 	<groupId>com.dawnyu</groupId>
 	<artifactId>maple_blog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>maple_blog</name>
-	<description>Vue博客服务端</description>
+	<description>枫火博客服务端</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

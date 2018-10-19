@@ -21,6 +21,6 @@
         UPDATE category SET cate_name=#{cateName} WHERE id=#{id}
     </update>
     <insert id="addCategory" parameterType="com.dawnyu.bean.Category">
-        INSERT INTO category SET date=#{date},cate_name=#{cateName}
+        INSERT INTO category SET create_date=#{createDate},cate_name=#{cateName}
     </insert>
 </mapper>
