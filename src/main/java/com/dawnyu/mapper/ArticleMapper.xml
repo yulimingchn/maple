@@ -40,7 +40,7 @@
         </if>
         WHERE id=#{id}
     </update>
-    <select id="getArticleByState" resultType="com.dawnyu.bean.Article">
+    <select id="getArticleByState" resultMap="BaseResultMap">
         SELECT a.id,a.`title`,a.`edit_time`,a.`page_view`,a.`state`,u.`nickname`,c.`cate_name`,a.uid FROM article a,user
         u,category c WHERE a.`cid`=c.`id` AND a.`uid`=u.`id`
         <if test="state!=-2">
