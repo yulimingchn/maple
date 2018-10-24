@@ -97,7 +97,7 @@
     </select>
 
     <insert id="pvStatisticsPerDay">
-        INSERT INTO pv(count_date,pv,uid) SELECT CURRENT_DATE(),totalPv-pv,t.`uid` FROM pvview p,totalpvview t WHERE p.`uid`=t.`uid`
+        INSERT INTO pv(count_date,pv,uid) SELECT CURRENT_DATE(),totalPv - pv,t.`uid` FROM pvview p,totalpvview t WHERE p.`uid`=t.`uid`
     </insert>
 
     <select id="getCategories" resultType="String" parameterType="long">
