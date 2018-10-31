@@ -86,7 +86,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 						<executable>true</executable>
-						<mainClass>com.dawnyu.MapleBlogApplication</mainClass>
+						<mainClass>com.dawnyu.maple.MapleBlogApplication</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
