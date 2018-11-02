@@ -6,6 +6,7 @@
     <resultMap id="BaseResultMap" type="com.dawnyu.maple.bean.Category">
         <id column="id" property="id"/>
         <result column="cate_name" property="cateName"/>
+        <result column="type" property="type"/>
         <result column="create_date" property="createDate"/>
     </resultMap>
     <select id="getAllCategories" resultMap="BaseResultMap">
@@ -21,6 +22,6 @@
         UPDATE category SET cate_name=#{cateName} WHERE id=#{id}
     </update>
     <insert id="addCategory" parameterType="com.dawnyu.maple.bean.Category">
-        INSERT INTO category SET create_date=#{createDate},cate_name=#{cateName}
+        INSERT INTO category SET create_date=#{createDate},cate_name=#{cateName},type=#{type}
     </insert>
 </mapper>

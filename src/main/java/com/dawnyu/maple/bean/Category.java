@@ -14,6 +14,8 @@ public class Category {
 
     private String cateName;
 
+    private Integer type;
+
     private Timestamp createDate;
 
 }

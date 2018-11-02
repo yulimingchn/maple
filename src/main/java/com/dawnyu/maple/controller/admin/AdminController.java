@@ -39,4 +39,14 @@ public class AdminController {
         }
         return new RespBean("error", "删除失败!");
     }
+
+    @RequestMapping(value = "/amountStatistics", method = RequestMethod.GET)
+    public Map<String, Object> getConsumerStatistics() {
+        Map<String, Object> map = new HashMap<>(16);
+        List<String> categories = articleService.getCategories();
+        List<Integer> dataStatistics = articleService.getDataStatistics();
+        map.put("categories", categories);
+        map.put("amount", dataStatistics);
+        return map;
+    }
 }

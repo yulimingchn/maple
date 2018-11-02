@@ -1,6 +1,7 @@
 package com.dawnyu.maple.service;
 
 import com.dawnyu.maple.bean.Category;
+import com.dawnyu.maple.constant.TypeConstant;
 import com.dawnyu.maple.mapper.CategoryMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,7 @@ public class CategoryService {
 
     public int addCategory(Category category) {
         category.setCreateDate(new Timestamp(System.currentTimeMillis()));
+        category.setType(TypeConstant.CATEGORY_TYPE_ARTICLE);
         return categoryMapper.addCategory(category);
     }
 }
