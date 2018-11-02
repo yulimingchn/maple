@@ -3,12 +3,14 @@ package com.dawnyu.maple.controller.admin;
 import com.dawnyu.maple.service.ArticleService;
 import com.dawnyu.maple.bean.Article;
 import com.dawnyu.maple.bean.RespBean;
+import com.dawnyu.maple.service.ConsumeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,13 +22,17 @@ import java.util.Map;
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
+
     @Autowired
     ArticleService articleService;
+
+    @Autowired
+    private ConsumeService consumeService;
 
     @RequestMapping(value = "/article/all", method = RequestMethod.GET)
     public Map<String, Object> getArticleByStateByAdmin(@RequestParam(value = "page", defaultValue = "1") Integer page, @RequestParam(value = "count", defaultValue = "6") Integer count, String keywords) {
         List<Article> articles = articleService.getArticleByState(-2, page, count, keywords);
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>(16);
         map.put("articles", articles);
         map.put("totalCount", articleService.getArticleCountByState(1, null, keywords));
         return map;
@@ -43,10 +49,8 @@ public class AdminController {
     @RequestMapping(value = "/amountStatistics", method = RequestMethod.GET)
     public Map<String, Object> getConsumerStatistics() {
         Map<String, Object> map = new HashMap<>(16);
-        List<String> categories = articleService.getCategories();
-        List<Integer> dataStatistics = articleService.getDataStatistics();
-        map.put("categories", categories);
-        map.put("amount", dataStatistics);
+        List<Map> categories = consumeService.getDataStatistics();
+
         return map;
     }
 }

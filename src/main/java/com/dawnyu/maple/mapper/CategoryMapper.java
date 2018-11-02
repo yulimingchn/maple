@@ -12,10 +12,11 @@ import java.util.List;
 @Mapper
 public interface CategoryMapper {
     /**
-     * 获取所有的类目
+     * 按type查询所有的类目
+     * @param type 类目类型
      * @return
      */
-    List<Category> getAllCategories();
+    List<Category> getAllCategories(@Param("type") Integer type);
 
     /**
      * 批量删除类目

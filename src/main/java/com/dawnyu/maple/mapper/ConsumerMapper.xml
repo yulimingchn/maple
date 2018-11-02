@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dawnyu.maple.mapper.ConsumerMapper">
+    <resultMap id="BaseResultMap" type="com.dawnyu.maple.bean.Consume">
+        <id column="id" property="id"/>
+        <result column="consume_name" property="consumeName"/>
+        <result column="consume_amount" property="consumeAmount"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="category_name" property="categoryName"/>
+        <result column="consume_date" property="consumeDate"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <select id="getDataStatistics" resultType="String">
+        SELECT consume_date from consume GROUP BY consume_date ORDER by consume_date DESC  limit 30
+    </select>
+</mapper>
