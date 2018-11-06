@@ -10,7 +10,7 @@
         <result column="create_date" property="createDate"/>
     </resultMap>
     <select id="getAllCategories" resultMap="BaseResultMap">
-        SELECT * FROM category
+        SELECT * FROM category WHERE type = #{type}
     </select>
     <delete id="deleteCategoryByIds">
         DELETE FROM category WHERE id IN

@@ -1,5 +1,6 @@
 package com.dawnyu.maple.controller.admin;
 
+import com.dawnyu.maple.dto.ConsumeStatisticsDTO;
 import com.dawnyu.maple.service.ArticleService;
 import com.dawnyu.maple.bean.Article;
 import com.dawnyu.maple.bean.RespBean;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,8 +51,15 @@ public class AdminController {
     @RequestMapping(value = "/amountStatistics", method = RequestMethod.GET)
     public Map<String, Object> getConsumerStatistics() {
         Map<String, Object> map = new HashMap<>(16);
-        List<Map> categories = consumeService.getDataStatistics();
-
+        List<ConsumeStatisticsDTO> list = consumeService.getDataStatistics();
+        List<String> categories = new ArrayList<>();
+        List<BigDecimal> amounts = new ArrayList<>();
+        for (ConsumeStatisticsDTO dto : list){
+            categories.add(dto.getConsumeDate());
+            amounts.add(dto.getTotalAmount());
+        }
+        map.put("categories", categories);
+        map.put("amount", amounts);
         return map;
     }
 }

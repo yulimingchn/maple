@@ -14,7 +14,16 @@
         <result column="update_time" property="updateTime"/>
     </resultMap>
 
-    <select id="getDataStatistics" resultType="String">
-        SELECT consume_date from consume GROUP BY consume_date ORDER by consume_date DESC  limit 30
+    <select id="getDataStatistics" resultType="com.dawnyu.maple.dto.ConsumeStatisticsDTO">
+        SELECT
+            consume_date AS consumeDate,
+            SUM(consume_amount) AS totalAmount
+        FROM
+            consume
+        GROUP BY
+            consume_date
+        ORDER BY
+            consume_date DESC
+        LIMIT 30
     </select>
 </mapper>

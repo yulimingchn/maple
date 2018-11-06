@@ -1,5 +1,6 @@
 package com.dawnyu.maple.mapper;
 
+import com.dawnyu.maple.dto.ConsumeStatisticsDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 
@@ -16,7 +17,7 @@ public interface ConsumerMapper {
      * 获取前30天的日期和金额
      * @return
      */
-    List<Map> getDataStatistics();
+    List<ConsumeStatisticsDTO> getDataStatistics();
 
 
 }

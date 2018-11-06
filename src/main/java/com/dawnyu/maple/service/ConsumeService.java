@@ -1,5 +1,6 @@
 package com.dawnyu.maple.service;
 
+import com.dawnyu.maple.dto.ConsumeStatisticsDTO;
 import com.dawnyu.maple.mapper.ConsumerMapper;
 import com.dawnyu.maple.utils.Util;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class ConsumeService {
      * 获取最近30天的日期和金额
      * @return
      */
-    public List<Map> getDataStatistics() {
+    public List<ConsumeStatisticsDTO> getDataStatistics() {
         return consumerMapper.getDataStatistics();
     }
 
