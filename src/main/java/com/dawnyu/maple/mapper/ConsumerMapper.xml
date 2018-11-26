@@ -23,7 +23,6 @@
         GROUP BY
             consume_date
         ORDER BY
-            consume_date DESC
-        LIMIT 30
+            consume_date ASC
     </select>
 </mapper>

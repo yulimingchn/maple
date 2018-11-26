@@ -10,7 +10,14 @@ import java.math.BigDecimal;
 @Data
 public class ConsumeStatisticsDTO {
 
+    /**
+     * 消费日期
+     */
     private String consumeDate;
 
+    /**
+     * 消费金额
+     */
     private BigDecimal totalAmount;
+
 }
