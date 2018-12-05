@@ -25,6 +25,15 @@ public class CategoryController {
     public List<Category> getAllCategories() {
         return categoryService.getAllCategories();
     }
+    @RequestMapping(value = "/article", method = RequestMethod.GET)
+    public List<Category> getArticleCategories() {
+        return categoryService.getArticleCategories();
+    }
+
+    @RequestMapping(value = "/consume", method = RequestMethod.GET)
+    public List<Category> getConsumeCategories() {
+        return categoryService.getConsumeCategories();
+    }
 
     @RequestMapping(value = "/{ids}", method = RequestMethod.DELETE)
     public RespBean deleteById(@PathVariable String ids) {

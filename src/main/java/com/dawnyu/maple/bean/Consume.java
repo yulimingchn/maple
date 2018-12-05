@@ -22,7 +22,9 @@ public class Consume {
 
     private String categoryName;
 
-    private Timestamp consumeDate;
+    private String consumeDesc;
+
+    private Date consumeDate;
 
     private Date createTime;
 

@@ -16,8 +16,13 @@ public interface CategoryMapper {
      * @param type 类目类型
      * @return
      */
-    List<Category> getAllCategories(@Param("type") Integer type);
+    List<Category> getCategoriesByType(@Param("type") Integer type);
 
+    /**
+     * 获取所有的分类
+     * @return
+     */
+    List<Category> getAllCategories();
     /**
      * 批量删除类目
      * @param ids
@@ -38,4 +43,11 @@ public interface CategoryMapper {
      * @return
      */
     int addCategory(Category category);
+
+    /**
+     * 查询单个类目
+     * @param id
+     * @return
+     */
+    Category getCategoryDetail(@Param("id") Integer id);
 }

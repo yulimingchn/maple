@@ -9,6 +9,7 @@
         <result column="consume_amount" property="consumeAmount"/>
         <result column="category_id" property="categoryId"/>
         <result column="category_name" property="categoryName"/>
+        <result column="consume_desc" property="consumeDesc"/>
         <result column="consume_date" property="consumeDate"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
@@ -25,4 +26,42 @@
         ORDER BY
             consume_date ASC
     </select>
+
+    <insert id="addConsume" parameterType="com.dawnyu.maple.bean.Consume" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO consume SET
+        consume_name=#{consumeName},
+        consume_amount=#{consumeAmount},
+        category_id=#{categoryId},
+        category_name=#{categoryName},
+        consume_desc=#{consumeDesc},
+        consume_date=#{consumeDate},
+        create_time=#{createTime},
+        update_time=#{updateTime}
+    </insert>
+    <select id="selectListByKeyword" resultMap="BaseResultMap">
+        SELECT * FROM consume
+        <where>
+            <if test="keyword!=null">
+                AND consume_name LIKE concat('%',#{keyword},'%')
+            </if>
+        </where>
+        ORDER BY consume_date DESC limit #{start},#{count};
+    </select>
+
+    <select id="selectTotalCount" resultType="int">
+        SELECT count(*) FROM consume
+        <where>
+            <if test="keywords=null">
+                AND consume_name LIKE concat('%',#{keywords},'%')
+            </if>
+        </where>
+    </select>
+
+    <delete id="deleteConsumeByIds">
+        DELETE FROM consume WHERE id IN
+        <foreach collection="ids" separator="," open="(" close=")" item="id">
+            #{id}
+        </foreach>
+    </delete>
+
 </mapper>

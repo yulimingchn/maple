@@ -20,7 +20,14 @@ public class CategoryService {
     CategoryMapper categoryMapper;
 
     public List<Category> getAllCategories() {
-        return categoryMapper.getAllCategories(TypeConstant.CATEGORY_TYPE_ARTICLE);
+        return categoryMapper.getAllCategories();
+    }
+
+    public List<Category> getArticleCategories() {
+        return categoryMapper.getCategoriesByType(TypeConstant.CATEGORY_TYPE_ARTICLE);
+    }
+    public List<Category> getConsumeCategories() {
+        return categoryMapper.getCategoriesByType(TypeConstant.CATEGORY_TYPE_CONSUME);
     }
 
     public boolean deleteCategoryByIds(String ids) {
