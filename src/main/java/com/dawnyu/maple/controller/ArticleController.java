@@ -95,7 +95,7 @@ public class ArticleController {
 
     @RequestMapping("/dataStatistics")
     public Map<String,Object> dataStatistics() {
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>(16);
         List<String> categories = articleService.getCategories();
         List<Integer> dataStatistics = articleService.getDataStatistics();
         map.put("categories", categories);

@@ -1,6 +1,7 @@
 package com.dawnyu.maple.service;
 
 import com.dawnyu.maple.bean.Category;
+import com.dawnyu.maple.constant.TypeConstant;
 import com.dawnyu.maple.mapper.CategoryMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,13 @@ public class CategoryService {
         return categoryMapper.getAllCategories();
     }
 
+    public List<Category> getArticleCategories() {
+        return categoryMapper.getCategoriesByType(TypeConstant.CATEGORY_TYPE_ARTICLE);
+    }
+    public List<Category> getConsumeCategories() {
+        return categoryMapper.getCategoriesByType(TypeConstant.CATEGORY_TYPE_CONSUME);
+    }
+
     public boolean deleteCategoryByIds(String ids) {
         String[] split = ids.split(",");
         int result = categoryMapper.deleteCategoryByIds(split);
@@ -34,6 +42,7 @@ public class CategoryService {
 
     public int addCategory(Category category) {
         category.setCreateDate(new Timestamp(System.currentTimeMillis()));
+        category.setType(TypeConstant.CATEGORY_TYPE_ARTICLE);
         return categoryMapper.addCategory(category);
     }
 }
