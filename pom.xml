@@ -6,10 +6,9 @@
 	<groupId>com.dawnyu</groupId>
 	<artifactId>maple_blog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
-
+	<packaging>jar</packaging>
 	<name>maple_blog</name>
-	<description>个人博客服务端</description>
+	<description>枫火博客服务端</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -68,7 +67,6 @@
 			<version>1.16.18</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
 	</dependencies>
-
 	<build>
 		<resources>
             <resource>
@@ -86,7 +84,8 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<executable>true</executable>
+						<executable>true</executable>
+						<mainClass>com.dawnyu.maple.MapleBlogApplication</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -26,3 +26,5 @@ nbdist/
 *.gitignore
 **.gitignore.swn
 rebel.xml
+classes/
+.gitigonre
