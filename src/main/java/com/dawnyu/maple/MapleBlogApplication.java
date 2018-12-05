@@ -3,13 +3,10 @@ package com.dawnyu.maple;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.annotation.Order;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-
-import java.net.UnknownHostException;
 
 /**
  *  @author dawnyu
@@ -24,6 +21,7 @@ public class MapleBlogApplication {
     }
 
     @Bean
+
     public CorsFilter corsFilter()  {
         final UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
         final CorsConfiguration corsConfiguration = new CorsConfiguration();
