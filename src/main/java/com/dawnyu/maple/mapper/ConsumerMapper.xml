@@ -45,7 +45,7 @@
                 AND consume_name LIKE concat('%',#{keyword},'%')
             </if>
         </where>
-        ORDER BY consume_date DESC limit #{start},#{count};
+        ORDER BY consume_date DESC,create_time DESC limit #{start},#{count};
     </select>
 
     <select id="selectTotalCount" resultType="int">
@@ -63,5 +63,8 @@
             #{id}
         </foreach>
     </delete>
+    <select id="getConsumeById" resultMap="BaseResultMap">
+        SELECT * FROM consume WHERE id = #{id}
+    </select>
 
 </mapper>

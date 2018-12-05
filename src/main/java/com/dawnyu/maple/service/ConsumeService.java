@@ -60,5 +60,10 @@ public class ConsumeService {
         return result == split.length;
     }
 
+    public Consume getConsumeById(Integer id){
+
+        return consumerMapper.getConsumeById(id);
+    }
+
 
 }

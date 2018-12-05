@@ -42,6 +42,7 @@ public interface ConsumerMapper {
 
     /**
      * 关键字查询记录总数
+     *
      * @param keyword
      * @return
      */
@@ -50,8 +51,16 @@ public interface ConsumerMapper {
 
     /**
      * 批量删除
+     *
      * @param ids
      * @return
      */
     int deleteConsumeByIds(@Param("ids") String[] ids);
+
+    /**
+     * 消费记录详情
+     * @param id
+     * @return
+     */
+    Consume getConsumeById(@Param("id") Integer id);
 }

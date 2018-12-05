@@ -95,4 +95,9 @@ public class AdminController {
         }
         return new RespBean("error", "删除失败!");
     }
+
+    @RequestMapping(value = "consume/{id}", method = RequestMethod.GET)
+    public Consume getArticleById(@PathVariable Integer id) {
+        return consumeService.getConsumeById(id);
+    }
 }
