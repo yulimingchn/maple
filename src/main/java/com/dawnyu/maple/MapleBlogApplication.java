@@ -21,7 +21,6 @@ public class MapleBlogApplication {
     }
 
     @Bean
-
     public CorsFilter corsFilter()  {
         final UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
         final CorsConfiguration corsConfiguration = new CorsConfiguration();
