@@ -21,8 +21,10 @@ import java.util.List;
 @Service
 @Transactional
 public class UserService implements UserDetailsService {
+
     @Autowired
     private UserMapper userMapper;
+
     @Autowired
     private RolesMapper rolesMapper;
 
