@@ -42,7 +42,7 @@ public class XmlUtil {
     /**
      * 文本消息对象转xml
      */
-    public static String textMsgToxml(TextMessage textMessage){
+    public static String textMsgToXml(TextMessage textMessage){
         XStream xstream = new XStream();
         xstream.alias("xml", textMessage.getClass());
         return xstream.toXML(textMessage);
