@@ -30,7 +30,7 @@ public class MessageUtil {
         text.setMsgType(MESSAGE_TEXT);
         text.setCreateTime(System.currentTimeMillis());
         text.setContent(content);
-        return XmlUtil.textMsgToxml(text);
+        return XmlUtil.textMsgToXml(text);
     }
 
     /**
