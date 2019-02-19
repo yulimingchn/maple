@@ -16,7 +16,6 @@ import org.springframework.web.filter.CorsFilter;
  */
 @SpringBootApplication
 @EnableScheduling
-@EnableEurekaClient
 @MapperScan(basePackages = "com.dawnyu.maple.mapper")
 public class MapleBlogApplication {
 

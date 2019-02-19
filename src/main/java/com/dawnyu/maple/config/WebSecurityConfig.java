@@ -17,7 +17,7 @@ import java.io.PrintWriter;
 /**
  * @author dawnyu
  */
-//@Configuration
+@Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
