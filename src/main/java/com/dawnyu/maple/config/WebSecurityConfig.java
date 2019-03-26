@@ -1,3 +1,4 @@
+/*
 package com.dawnyu.maple.config;
 
 import com.dawnyu.maple.service.UserService;
@@ -14,10 +15,12 @@ import org.springframework.util.DigestUtils;
 
 import java.io.PrintWriter;
 
+*/
 /**
  * @author dawnyu
- */
-@Configuration
+ *//*
+
+//@Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -31,11 +34,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 return DigestUtils.md5DigestAsHex(charSequence.toString().getBytes());
             }
 
-            /**
+            */
+/**
              * @param charSequence 明文
              * @param s 密文
              * @return
-             */
+             *//*
+
             @Override
             public boolean matches(CharSequence charSequence, String s) {
                 return s.equals(DigestUtils.md5DigestAsHex(charSequence.toString().getBytes()));
@@ -88,4 +93,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     AccessDeniedHandler getAccessDeniedHandler() {
         return new AuthenticationAccessDeniedHandler();
     }
-}
+}*/

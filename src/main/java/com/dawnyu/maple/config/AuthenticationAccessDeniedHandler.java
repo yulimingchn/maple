@@ -1,4 +1,5 @@
 package com.dawnyu.maple.config;
+/*
 
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
@@ -9,12 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+*/
 /**
  * @author dawnyu
- */
+ *//*
+
 public class AuthenticationAccessDeniedHandler implements AccessDeniedHandler {
     @Override
-    public void handle(HttpServletRequest httpServletRequest, HttpServletResponse resp, AccessDeniedException e) throws IOException, ServletException {
+    public void handle(HttpServletRequest httpServletRequest, HttpServletResponse resp, AccessDeniedException e) throws IOException {
         resp.setStatus(HttpServletResponse.SC_FORBIDDEN);
         resp.setCharacterEncoding("UTF-8");
         PrintWriter out = resp.getWriter();
@@ -23,3 +26,4 @@ public class AuthenticationAccessDeniedHandler implements AccessDeniedHandler {
         out.close();
     }
 }
+*/

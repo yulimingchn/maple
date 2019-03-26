@@ -1,14 +1,10 @@
 package com.dawnyu.maple.service;
 
-import com.dawnyu.maple.mapper.RolesMapper;
 import com.dawnyu.maple.bean.Role;
 import com.dawnyu.maple.bean.User;
+import com.dawnyu.maple.mapper.RolesMapper;
 import com.dawnyu.maple.mapper.UserMapper;
-import com.dawnyu.maple.utils.Util;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
@@ -20,7 +16,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class UserService implements UserDetailsService {
+public class UserService {
 
     @Autowired
     private UserMapper userMapper;
@@ -28,7 +24,7 @@ public class UserService implements UserDetailsService {
     @Autowired
     private RolesMapper rolesMapper;
 
-    @Override
+ /*   @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user = userMapper.loadUserByUsername(s);
         if (user == null) {
@@ -39,7 +35,7 @@ public class UserService implements UserDetailsService {
         List<Role> roles = rolesMapper.getRolesByUid(user.getId());
         user.setRoles(roles);
         return user;
-    }
+    }*/
 
     /**
      * @param user
@@ -69,7 +65,7 @@ public class UserService implements UserDetailsService {
     }
 
     public int updateUserEmail(String email) {
-        return userMapper.updateUserEmail(email, Util.getCurrentUser().getId());
+        return userMapper.updateUserEmail(email, 102L);
     }
 
     public List<User> getUserByNickname(String nickname) {

@@ -3,7 +3,6 @@ package com.dawnyu.maple.service;
 import com.dawnyu.maple.bean.Article;
 import com.dawnyu.maple.mapper.ArticleMapper;
 import com.dawnyu.maple.mapper.TagsMapper;
-import com.dawnyu.maple.utils.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,7 +37,7 @@ public class ArticleService {
             }
             article.setEditTime(timestamp);
             //设置当前用户
-            article.setUid(Util.getCurrentUser().getId());
+            article.setUid(102L);
             int i = articleMapper.addNewArticle(article);
             //打标签
             String[] dynamicTags = article.getDynamicTags();
@@ -93,7 +92,7 @@ public class ArticleService {
 
     public List<Article> getArticleByState(Integer state, Integer page, Integer count,String keywords) {
         int start = (page - 1) * count;
-        Long uid = Util.getCurrentUser().getId();
+        Long uid = 102L;
         return articleMapper.getArticleByState(state, start, count, uid,keywords);
     }
 
@@ -130,7 +129,7 @@ public class ArticleService {
      * @return
      */
     public List<String> getCategories() {
-        return articleMapper.getCategories(Util.getCurrentUser().getId());
+        return articleMapper.getCategories(102L);
     }
 
     /**
@@ -138,6 +137,6 @@ public class ArticleService {
      * @return
      */
     public List<Integer> getDataStatistics() {
-        return articleMapper.getDataStatistics(Util.getCurrentUser().getId());
+        return articleMapper.getDataStatistics(102L);
     }
 }
