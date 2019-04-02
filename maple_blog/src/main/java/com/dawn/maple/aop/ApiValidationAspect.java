@@ -166,7 +166,7 @@ public class ApiValidationAspect {
             return obj;
         }else{
             //请求参数绑定错误处理
-            FinalResult finalResult = FinalResult.create();
+            FinalResult finalResult = FinalResult.create(null,null,0);
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
             finalResult.setParamFail();
