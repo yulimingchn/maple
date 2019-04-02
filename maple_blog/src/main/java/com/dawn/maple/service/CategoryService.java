@@ -14,10 +14,10 @@ import java.util.List;
  * @author dawnyu
  */
 @Service
-@Transactional
+@Transactional(rollbackFor = RuntimeException.class)
 public class CategoryService {
     @Autowired
-    CategoryMapper categoryMapper;
+    private CategoryMapper categoryMapper;
 
     public List<Category> getAllCategories() {
         return categoryMapper.getAllCategories();
@@ -26,6 +26,7 @@ public class CategoryService {
     public List<Category> getArticleCategories() {
         return categoryMapper.getCategoriesByType(TypeConstant.CATEGORY_TYPE_ARTICLE);
     }
+
     public List<Category> getConsumeCategories() {
         return categoryMapper.getCategoriesByType(TypeConstant.CATEGORY_TYPE_CONSUME);
     }

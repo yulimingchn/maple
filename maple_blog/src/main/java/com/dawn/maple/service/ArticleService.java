@@ -14,12 +14,14 @@ import java.util.List;
  * @author dawnyu
  */
 @Service
-@Transactional
+@Transactional(rollbackFor = RuntimeException.class)
 public class ArticleService {
+
     @Autowired
-    ArticleMapper articleMapper;
+    private ArticleMapper articleMapper;
+
     @Autowired
-    TagsMapper tagsMapper;
+    private TagsMapper tagsMapper;
 
     public int addNewArticle(Article article) {
         //处理文章摘要
@@ -36,16 +38,13 @@ public class ArticleService {
                 article.setPublishDate(timestamp);
             }
             article.setEditTime(timestamp);
-            //设置当前用户
+            //todo 设置当前用户
             article.setUid(102L);
             int i = articleMapper.addNewArticle(article);
             //打标签
-            String[] dynamicTags = article.getDynamicTags();
-            if (dynamicTags != null && dynamicTags.length > 0) {
-                int tags = addTagsToArticle(dynamicTags, article.getId());
-                if (tags == -1) {
-                    return tags;
-                }
+            Integer tags = getTags(article);
+            if (tags != null){
+                return tags;
             }
             return i;
         } else {
@@ -58,15 +57,23 @@ public class ArticleService {
             article.setEditTime(new Timestamp(System.currentTimeMillis()));
             int i = articleMapper.updateArticle(article);
             //修改标签
-            String[] dynamicTags = article.getDynamicTags();
-            if (dynamicTags != null && dynamicTags.length > 0) {
-                int tags = addTagsToArticle(dynamicTags, article.getId());
-                if (tags == -1) {
-                    return tags;
-                }
+            Integer tags = getTags(article);
+            if (tags != null){
+                return tags;
             }
             return i;
         }
+    }
+
+    private Integer getTags(Article article) {
+        String[] dynamicTags = article.getDynamicTags();
+        if (dynamicTags != null && dynamicTags.length > 0) {
+            int tags = addTagsToArticle(dynamicTags, article.getId());
+            if (tags == -1) {
+                return tags;
+            }
+        }
+        return null;
     }
 
     private int addTagsToArticle(String[] dynamicTags, Long aid) {
