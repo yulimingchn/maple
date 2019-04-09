@@ -18,9 +18,6 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @Autowired
-    private MyWebSocket myWebSocket;
-
     @RequestMapping("/currentUserName")
     public String currentUserName() {
         return "haha";

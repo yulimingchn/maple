@@ -31,9 +31,9 @@ import java.util.TreeMap;
  * @author Dawn
  * 2019-04-02
  */
-@Aspect
-@Component
-@Order(2)
+//@Aspect
+//@Component
+//@Order(2)
 public class ApiValidationAspect {
 
     protected static Logger logger = LoggerFactory.getLogger(ApiValidationAspect.class);
@@ -48,7 +48,7 @@ public class ApiValidationAspect {
     /**
      * 切面
      */
-    @Pointcut("execution(public * com.dawn.maple.controller.*(..))")
+    @Pointcut("execution(public * com.dawn.maple.controller.*.*(..))")
     public void controllerPoint() {
     }
 
@@ -142,7 +142,7 @@ public class ApiValidationAspect {
             }
 
             if(legal){
-                //按《通讯协议签名》中的约定拼装参数
+                //按约定拼装参数
                 StringBuilder stringBuilderParamFormat = new StringBuilder();
                 stringBuilderParamFormat.append(secret);
                 for (Map.Entry<String, String> parm : sortMap.entrySet()) {

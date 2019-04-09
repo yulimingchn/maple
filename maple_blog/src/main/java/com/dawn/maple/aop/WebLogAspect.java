@@ -31,7 +31,7 @@ public class WebLogAspect {
     /**
      * 切面
      */
-    @Pointcut("execution(public * com.dawn.maple.controller..*(..))")
+    @Pointcut("execution(public * com.dawn.maple.controller.*.*(..))")
     public void facadeImplPoint(){}
 
     /**

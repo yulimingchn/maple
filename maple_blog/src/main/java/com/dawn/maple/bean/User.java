@@ -26,13 +26,12 @@ public class User  {
 
     private String email;
 
-    private String userface;
+    private String userFace;
 
     private Timestamp regTime;
 
     private Date createTime;
 
     private Date updateTime;
-
 
 }

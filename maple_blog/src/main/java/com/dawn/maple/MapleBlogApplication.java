@@ -13,7 +13,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableScheduling
-@MapperScan(basePackages = "com.dawnyu.maple.mapper")
+@MapperScan(basePackages = "com.dawn.maple.mapper")
 public class MapleBlogApplication {
 
     public static void main(String[] args) {
