@@ -5,6 +5,8 @@ import com.dawn.maple.bean.User;
 import com.dawn.maple.mapper.RolesMapper;
 import com.dawn.maple.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
@@ -16,7 +18,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class UserService {
+public class UserService  {
 
     @Autowired
     private UserMapper userMapper;
@@ -24,7 +26,7 @@ public class UserService {
     @Autowired
     private RolesMapper rolesMapper;
 
- /*   @Override
+    @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user = userMapper.loadUserByUsername(s);
         if (user == null) {
@@ -35,7 +37,7 @@ public class UserService {
         List<Role> roles = rolesMapper.getRolesByUid(user.getId());
         user.setRoles(roles);
         return user;
-    }*/
+    }
 
     /**
      * @param user
