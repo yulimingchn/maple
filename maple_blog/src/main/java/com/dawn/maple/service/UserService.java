@@ -6,6 +6,7 @@ import com.dawn.maple.mapper.RolesMapper;
 import com.dawn.maple.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,7 +19,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class UserService  {
+public class UserService implements UserDetailsService {
 
     @Autowired
     private UserMapper userMapper;
