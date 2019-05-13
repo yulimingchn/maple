@@ -1,6 +1,6 @@
 package com.dawn.maple.test;
 
-import com.dawn.maple.MapleBlogApplication;
+import com.dawn.maple.MapleBlog;
 import com.dawn.maple.websocket.MyWebSocket;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +16,7 @@ import java.io.IOException;
  * @author dawn
  */
 @RunWith(SpringJUnit4ClassRunner.class)//springJunit支持
-@SpringBootTest(classes = MapleBlogApplication.class)
+@SpringBootTest(classes = MapleBlog.class)
 @WebAppConfiguration//由于是web项目，Junit需要模拟ServletContext
 public class WebSocketTest {
 

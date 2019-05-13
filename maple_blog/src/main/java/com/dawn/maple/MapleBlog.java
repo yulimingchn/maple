@@ -14,10 +14,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableEurekaClient
 @EnableScheduling
 @MapperScan(basePackages = "com.dawn.maple.mapper")
-public class MapleBlogApplication {
+public class MapleBlog {
 
     public static void main(String[] args) {
-        SpringApplication.run(MapleBlogApplication.class, args);
+        SpringApplication.run(MapleBlog.class, args);
     }
 
 }

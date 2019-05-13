@@ -13,6 +13,11 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
+    /**
+     * 根据用户名查询用户
+     * @param username
+     * @return
+     */
     User loadUserByUsername(@Param("username") String username);
 
     long reg(User user);

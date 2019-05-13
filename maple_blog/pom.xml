@@ -140,7 +140,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 						<executable>true</executable>
-						<mainClass>com.dawn.maple.MapleBlogApplication</mainClass>
+						<mainClass>com.dawn.maple.MapleBlog</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>

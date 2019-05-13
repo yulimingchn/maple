@@ -2,6 +2,8 @@ package com.dawn.maple.bean;
 
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * @author dawnyu
  */
@@ -11,6 +13,10 @@ public class Role {
     private Long id;
 
     private String name;
+
+    private Date createTime;
+
+    private Date updateTime;
 
     public Role() {
     }
