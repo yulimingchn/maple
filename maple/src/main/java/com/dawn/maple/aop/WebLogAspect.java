@@ -47,8 +47,8 @@ public class WebLogAspect {
     @Value("${spring.application.name}")
     private String applicationName;
 
-    @Autowired
-    private MongoTemplate mongoTemplate;
+    /*@Autowired
+    private MongoTemplate mongoTemplate;*/
 
     /**
      * 切面
@@ -118,16 +118,16 @@ public class WebLogAspect {
         webLogRecord.setResult(ret);
         webLogRecord.setSpendTime(spendTime);
         String collectionName = applicationName + "_webLogRecord_" + DateUtils.formatDate(new Date(), "YYYY-MM");
-        mongoTemplate.save(webLogRecord,collectionName);
+        //mongoTemplate.save(webLogRecord,collectionName);
         createMongoIndex(collectionName);
     }
 
     private void createMongoIndex(String collectionName) {
         if (!collectionNameSet.contains(collectionName)) {
-            mongoTemplate.indexOps(collectionName).ensureIndex(new Index().on("requestHash", Sort.Direction.ASC));
-            mongoTemplate.indexOps(collectionName).ensureIndex(new Index().on("userId", Sort.Direction.ASC));
-            mongoTemplate.indexOps(collectionName).ensureIndex(new Index().on("method", Sort.Direction.ASC));
-            mongoTemplate.indexOps(collectionName).ensureIndex(new Index().on("timestamp", Sort.Direction.DESC));
+            //mongoTemplate.indexOps(collectionName).ensureIndex(new Index().on("requestHash", Sort.Direction.ASC));
+           // mongoTemplate.indexOps(collectionName).ensureIndex(new Index().on("userId", Sort.Direction.ASC));
+            //mongoTemplate.indexOps(collectionName).ensureIndex(new Index().on("method", Sort.Direction.ASC));
+            //mongoTemplate.indexOps(collectionName).ensureIndex(new Index().on("timestamp", Sort.Direction.DESC));
             collectionNameSet.add(collectionName);
         }
     }

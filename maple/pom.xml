@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.dawnyu</groupId>
-		<artifactId>maple</artifactId>
+		<artifactId>redmaple</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>maple_blog</artifactId>
+	<artifactId>maple</artifactId>
 	<packaging>jar</packaging>
-	<name>maple_blog</name>
+	<name>maple</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -144,6 +144,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>maple_blog-exec</finalName>
+		<finalName>maple-exec</finalName>
 	</build>
 </project>

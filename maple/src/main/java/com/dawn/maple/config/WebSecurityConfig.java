@@ -23,13 +23,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private MyFilterSecurityInterceptor myFilterSecurityInterceptor;
 
     @Bean
-    UserDetailsService userService(){
+    UserDetailsService securityUserService(){
         return new UserService();
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth)throws Exception{
-        auth.userDetailsService(userService());
+        auth.userDetailsService(securityUserService());
     }
 
     @Override
